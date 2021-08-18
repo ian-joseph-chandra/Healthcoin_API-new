@@ -6,14 +6,13 @@ class Hospital extends Model {
 
 Hospital.init({
     id: {
-        type: DataTypes.BIGINTEGER.UNSIGNED,
+        type: DataTypes.BIGINT.UNSIGNED,
         primaryKey: true
     },
     blockchainId: {
-        type: DataTypes.BIGINTEGER.UNSIGNED,
+        type: DataTypes.BIGINT.UNSIGNED,
         references: {
-            model: Blockchain,
-            key: 'id'
+            model: 'Blockchain'
         },
         field: 'blockchain_id'
     },

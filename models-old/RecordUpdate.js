@@ -7,7 +7,7 @@ class RecordUpdate extends Model {
 
 RecordUpdate.init({
     oldRecordId: {
-        type: DataTypes.BIGINTEGER.UNSIGNED,
+        type: DataTypes.BIGINT.UNSIGNED,
         references: {
             model: Record,
             key: 'id'
@@ -15,7 +15,7 @@ RecordUpdate.init({
         field: 'old_record_id'
     },
     newRecordId: {
-        type: DataTypes.BIGINTEGER.UNSIGNED,
+        type: DataTypes.BIGINT.UNSIGNED,
         references: {
             model: Record,
             key: 'id'

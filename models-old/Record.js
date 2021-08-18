@@ -8,11 +8,11 @@ class Record extends Model {
 
 Record.init({
     id: {
-        type: DataTypes.BIGINTEGER.UNSIGNED,
+        type: DataTypes.BIGINT.UNSIGNED,
         primaryKey: true
     },
     patientId: {
-        type: DataTypes.BIGINTEGER.UNSIGNED,
+        type: DataTypes.BIGINT.UNSIGNED,
         references: {
             model: User,
             key: 'id'
@@ -21,7 +21,7 @@ Record.init({
         field: 'patient_id'
     },
     doctorId: {
-        type: DataTypes.BIGINTEGER.UNSIGNED,
+        type: DataTypes.BIGINT.UNSIGNED,
         references: {
             model: User,
             key: 'id'
@@ -30,7 +30,7 @@ Record.init({
         field: 'doctor_id'
     },
     hospitalId: {
-        type: DataTypes.BIGINTEGER.UNSIGNED,
+        type: DataTypes.BIGINT.UNSIGNED,
         references: {
             model: Hospital,
             key: 'id'

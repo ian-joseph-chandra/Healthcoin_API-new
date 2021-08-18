@@ -1,14 +1,14 @@
 const {Model, DataTypes} = require("sequelize"),
     sequelize = require('./database/db-conn').sequelize,
     User = require('./User'),
-    Hospital = require('./Hospital')
+    Hospital = require('./Hospital');
 
 class DoctorHospital extends Model {
 }
 
 DoctorHospital.init({
     doctorId: {
-        type: DataTypes.BIGINTEGER.UNSIGNED,
+        type: DataTypes.BIGINT.UNSIGNED,
         references: {
             model: User,
             key: 'id'
@@ -16,7 +16,7 @@ DoctorHospital.init({
         field: 'doctor_id'
     },
     hospitalId: {
-        type: DataTypes.BIGINTEGER.UNSIGNED,
+        type: DataTypes.BIGINT.UNSIGNED,
         references: {
             model: Hospital,
             key: 'id'

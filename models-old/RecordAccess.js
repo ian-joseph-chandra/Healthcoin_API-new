@@ -7,14 +7,13 @@ class RecordAccess extends Model {
 
 RecordAccess.init({
     id: {
-        type: DataTypes.BIGINTEGER.UNSIGNED,
+        type: DataTypes.BIGINT.UNSIGNED,
         primaryKey: true
     },
     patientId: {
-        type: DataTypes.BIGINTEGER.UNSIGNED,
+        type: DataTypes.BIGINT.UNSIGNED,
         references: {
-            model: User,
-            key: 'id'
+            model: 'User'
         },
         allowNull: false,
         field: 'patient_id'
