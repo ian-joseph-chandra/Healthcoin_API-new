@@ -1,12 +1,12 @@
 'use strict';
 module.exports = {
     up: async (queryInterface, Sequelize) => {
-        await queryInterface.createTable('Users', {
+        await queryInterface.createTable('users', {
             id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
-                type: Sequelize.INTEGER
+                type: Sequelize.BIGINT.UNSIGNED
             },
             roleId: {
                 type: Sequelize.BIGINT.UNSIGNED,
@@ -53,12 +53,9 @@ module.exports = {
                 allowNull: false,
                 field: 'national_id'
             }
-        }, {
-            tableName: 'users',
-            timestamps: false,
         });
     },
     down: async (queryInterface, Sequelize) => {
-        await queryInterface.dropTable('Users');
+        await queryInterface.dropTable('users');
     }
 };
