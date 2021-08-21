@@ -11,10 +11,11 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             this.belongsTo(models.UserRole, {foreignKey: 'role_id', as: 'role'});
+            this.belongsTo(models.Blockchain, {foreignKey: 'blockchain_id', as: 'blockchain'});
 
-            this.hasMany(models.UserRole, {foreignKey: 'patient_id', as:'patients'});
-            this.hasMany(models.UserRole, {foreignKey: 'doctor_id', as:'doctors'});
-            this.hasMany(models.RecordAccess, {foreignKey: 'patient_id', as: 'patients'});
+            this.hasMany(models.Record, {foreignKey: 'patient_id', as:'patient_records'});
+            this.hasMany(models.Record, {foreignKey: 'doctor_id', as:'doctor_records'});
+            this.hasMany(models.RecordAccess, {foreignKey: 'patient_id', as: 'record_accesses'});
 
             this.belongsToMany(models.Hospital, {
                 through: 'doctors_hospitals',

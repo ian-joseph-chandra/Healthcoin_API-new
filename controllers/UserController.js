@@ -1,12 +1,18 @@
-const db = require('../models')
-    /*{UserRole} = require('../models/UserRole')*/;
+const models = require('../models');
 
 class UserController {
     static async index() {
-        return await db.User.findAll({
+        return await models.User.findAll({
             include: ['role']
         });
     }
-}
 
-UserController.index().then(r => console.log(r))
+    static async store() {
+    }
+
+    static async update() {
+    }
+
+    static async destroy() {
+    }
+}

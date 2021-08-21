@@ -1,6 +1,6 @@
 'use strict';
 const {
-    Model, DataTypes
+    Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
     class Hospital extends Model {
@@ -28,9 +28,9 @@ module.exports = (sequelize, DataTypes) => {
         },
         blockchainId: {
             type: DataTypes.BIGINT.UNSIGNED,
-            references: {
-                model: 'Blockchain'
-            },
+            // references: {
+            //     model: 'Blockchain'
+            // },
             field: 'blockchain_id'
         },
         name: {

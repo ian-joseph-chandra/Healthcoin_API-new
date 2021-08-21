@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             this.hasMany(models.User, {foreignKey: 'blockchain_id', as: 'users'});
-            this.hasMany(models.Blockchain, {foreignKey: 'blockchain_id', as: 'hospitals'});
+            this.hasMany(models.Hospital, {foreignKey: 'blockchain_id', as: 'hospitals'});
         }
     }
     Blockchain.init({

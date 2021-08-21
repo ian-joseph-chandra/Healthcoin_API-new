@@ -1,6 +1,6 @@
 'use strict';
 const {
-    Model, DataTypes
+    Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
     class RecordAccess extends Model {
@@ -31,14 +31,21 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false
         },
+        createdAt: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            field: 'created_at'
+        },
         terminatedAt: {
             type: DataTypes.DATE,
             // allowNull: false
+            field: 'terminated_at'
         }
     }, {
         sequelize,
         modelName: 'RecordAccess',
-        tableName: 'record_accesses'
+        tableName: 'record_accesses',
+        updatedAt: false
     });
     return RecordAccess;
 };

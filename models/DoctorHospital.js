@@ -1,9 +1,7 @@
 'use strict';
 const {
-    Model, DataTypes
+    Model
 } = require('sequelize');
-const User = require("./User");
-const Hospital = require("./Hospital");
 module.exports = (sequelize, DataTypes) => {
     class DoctorHospital extends Model {
         /**
@@ -38,7 +36,8 @@ module.exports = (sequelize, DataTypes) => {
         sequelize,
         modelName: 'DoctorHospital',
         tableName: 'doctors_hospitals',
-        timestamps: false
+        timestamps: false,
+        primaryKey: false
     });
     return DoctorHospital;
 };

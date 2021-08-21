@@ -1,6 +1,6 @@
 'use strict';
 const {
-    Model, DataTypes
+    Model
 } = require('sequelize');
 const User = require("./User");
 const Hospital = require("./Hospital");
@@ -15,11 +15,12 @@ module.exports = (sequelize, DataTypes) => {
             this.belongsTo(models.User, {foreignKey: 'patient_id', as: 'patient'});
             this.belongsTo(models.User, {foreignKey: 'doctor_id', as: 'doctor'});
             this.belongsTo(models.Hospital, {foreignKey: 'hospital_id', as: 'hospital'});
-            // this.hasOne(models.Record, {
-            //     through: ''
-            // })
+
+            this.hasOne(models.RecordUpdate, {foreignKey: 'old_record_id', as: 'old_record'});
+            this.hasOne(models.RecordUpdate, {foreignKey: 'new_record_id', as: 'new_record'});
         }
     }
+
     Record.init({
         id: {
             type: DataTypes.BIGINT.UNSIGNED,
@@ -52,20 +53,6 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
             field: 'hospital_id'
         },
-        name: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        birthDate: {
-            type: DataTypes.DATE,
-            allowNull: false,
-            field: 'birth_date'
-        },
-        hashValue: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            field: 'hash_value'
-        },
         contractAddress: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -82,12 +69,14 @@ module.exports = (sequelize, DataTypes) => {
         },
         createdAt: {
             type: DataTypes.DATE,
-            allowNull: false
+            allowNull: false,
+            field: 'created_at'
         }
     }, {
         sequelize,
         modelName: 'Record',
-        tableName: 'records'
+        tableName: 'records',
+        updatedAt: false
     });
     return Record;
 };

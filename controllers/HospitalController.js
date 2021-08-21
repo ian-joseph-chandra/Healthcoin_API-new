@@ -1,8 +1,8 @@
 const models = require('../models');
 
-class UserRoleController {
+class HospitalController {
     static async index() {
-        return await models.UserRole.findAll(/*{include: ['users']}*/);
+        return await models.Hospital.findAll();
     }
 
     static async store() {

@@ -1,8 +1,8 @@
 const models = require('../models');
 
-class UserRoleController {
+class RecordUpdateController {
     static async index() {
-        return await models.UserRole.findAll(/*{include: ['users']}*/);
+        return await models.RecordUpdate.findAll();
     }
 
     static async store() {
@@ -14,3 +14,5 @@ class UserRoleController {
     static async destroy() {
     }
 }
+
+RecordUpdateController.index().then(r => console.log(r))

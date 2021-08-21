@@ -1,8 +1,7 @@
 'use strict';
 const {
-    Model, DataTypes
+    Model
 } = require('sequelize');
-const Record = require("./Record");
 module.exports = (sequelize, DataTypes) => {
     class RecordUpdate extends Model {
         /**
@@ -11,9 +10,10 @@ module.exports = (sequelize, DataTypes) => {
          * The `models/index` file will call this method automatically.
          */
         static associate(models) {
-            // define association here
+            this.belongsTo(models.Record, {foreignKey: 'old_record_id', as: 'old_record'});
+            this.belongsTo(models.Record, {foreignKey: 'new_record_id', as: 'new_record'});
         }
-    };
+    }
     RecordUpdate.init({
         oldRecordId: {
             type: DataTypes.BIGINT.UNSIGNED,
@@ -34,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
     }, {
         sequelize,
         modelName: 'RecordUpdate',
-        tableName: 'record_updates',
+        tableName: 'record_update_logs',
         timestamps: false
     });
     return RecordUpdate;
