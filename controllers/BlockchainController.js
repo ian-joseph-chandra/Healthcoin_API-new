@@ -1,11 +1,12 @@
-const models = require('../models');
+const Blockchain = require('../models').Blockchain;
 
 class BlockchainController {
     static async index() {
-        return await models.Blockchain.findAll();
+        return await Blockchain.findAll();
     }
 
-    static async store() {
+    static async store(address, balance) {
+        await Blockchain.create({address, balance})
     }
 
     static async update() {

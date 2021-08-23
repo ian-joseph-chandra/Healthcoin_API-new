@@ -17,19 +17,14 @@ module.exports = (sequelize, DataTypes) => {
     RecordUpdate.init({
         oldRecordId: {
             type: DataTypes.BIGINT.UNSIGNED,
-            // references: {
-            //   model: Record,
-            //   key: 'id'
-            // },
-            field: 'old_record_id'
+            field: 'old_record_id',
+            allowNull: false,
+            primaryKey: true
         },
         newRecordId: {
             type: DataTypes.BIGINT.UNSIGNED,
-            // references: {
-            //   model: Record,
-            //   key: 'id'
-            // },
-            field: 'new_record_id'
+            field: 'new_record_id',
+            allowNull: false
         }
     }, {
         sequelize,

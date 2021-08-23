@@ -16,19 +16,12 @@ module.exports = (sequelize, DataTypes) => {
     DoctorHospital.init({
         doctorId: {
             type: DataTypes.BIGINT.UNSIGNED,
-            // references: {
-            //     model: User,
-            //     key: 'id'
-            // },
             field: 'doctor_id',
-            allowNull: false
+            allowNull: false,
+            primaryKey: true
         },
         hospitalId: {
             type: DataTypes.BIGINT.UNSIGNED,
-            // references: {
-            //     model: Hospital,
-            //     key: 'id'
-            // },
             field: 'hospital_id',
             allowNull: false
         }
@@ -36,8 +29,7 @@ module.exports = (sequelize, DataTypes) => {
         sequelize,
         modelName: 'DoctorHospital',
         tableName: 'doctors_hospitals',
-        timestamps: false,
-        primaryKey: false
+        timestamps: false
     });
     return DoctorHospital;
 };

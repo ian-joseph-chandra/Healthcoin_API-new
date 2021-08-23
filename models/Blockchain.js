@@ -16,8 +16,9 @@ module.exports = (sequelize, DataTypes) => {
     }
     Blockchain.init({
         id: {
+            type: DataTypes.BIGINT.UNSIGNED,
             primaryKey: true,
-            type: DataTypes.BIGINT.UNSIGNED
+            autoIncrement: true
         },
         address: {
             type: DataTypes.STRING,

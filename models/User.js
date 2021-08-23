@@ -29,22 +29,16 @@ module.exports = (sequelize, DataTypes) => {
     User.init({
         id: {
             type: DataTypes.BIGINT.UNSIGNED,
-            autoIncrement: true,
-            primaryKey: true
+            primaryKey: true,
+            autoIncrement: true
         },
         roleId: {
             type: DataTypes.BIGINT.UNSIGNED,
-            // references: {
-            //     model: 'UserRole'
-            // },
             allowNull: false,
             field: 'role_id'
         },
         blockchainId: {
             type: DataTypes.BIGINT.UNSIGNED,
-            // references: {
-            //     model: 'Blockchain'
-            // },
             field: 'blockchain_id'
         },
         name: {

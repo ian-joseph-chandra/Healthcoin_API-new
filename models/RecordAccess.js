@@ -17,7 +17,8 @@ module.exports = (sequelize, DataTypes) => {
     RecordAccess.init({
         id: {
             type: DataTypes.BIGINT.UNSIGNED,
-            primaryKey: true
+            primaryKey: true,
+            autoIncrement: true
         },
         patientId: {
             type: DataTypes.BIGINT.UNSIGNED,

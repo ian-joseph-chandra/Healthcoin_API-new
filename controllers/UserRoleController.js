@@ -1,11 +1,12 @@
-const models = require('../models');
+const UserRole = require('../models').UserRole;
 
 class UserRoleController {
     static async index() {
-        return await models.UserRole.findAll(/*{include: ['users']}*/);
+        return await UserRole.findAll();
     }
 
-    static async store() {
+    static async store(name) {
+        await UserRole.create({name})
     }
 
     static async update() {

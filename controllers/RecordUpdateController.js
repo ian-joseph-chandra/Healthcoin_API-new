@@ -1,11 +1,15 @@
-const models = require('../models');
+const RecordUpdate = require('../models').RecordUpdate;
 
 class RecordUpdateController {
     static async index() {
-        return await models.RecordUpdate.findAll();
+        return await RecordUpdate.findAll();
     }
 
-    static async store() {
+    static async store(oldRecordId, newRecordId) {
+        await RecordUpdate.create({
+            oldRecordId,
+            newRecordId
+        })
     }
 
     static async update() {
@@ -14,5 +18,3 @@ class RecordUpdateController {
     static async destroy() {
     }
 }
-
-RecordUpdateController.index().then(r => console.log(r))

@@ -1,8 +1,8 @@
-const models = require('../models');
+const DoctorHospital = require('../models').DoctorHospital;
 
 class DoctorHospitalController {
     static async index() {
-        return await models.DoctorHospital.findAll();
+        return await DoctorHospital.findAll();
     }
 
     static async store() {

@@ -24,7 +24,8 @@ module.exports = (sequelize, DataTypes) => {
     Hospital.init({
         id: {
             type: DataTypes.BIGINT.UNSIGNED,
-            primaryKey: true
+            primaryKey: true,
+            autoIncrement: true
         },
         blockchainId: {
             type: DataTypes.BIGINT.UNSIGNED,

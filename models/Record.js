@@ -24,23 +24,16 @@ module.exports = (sequelize, DataTypes) => {
     Record.init({
         id: {
             type: DataTypes.BIGINT.UNSIGNED,
-            primaryKey: true
+            primaryKey: true,
+            autoIncrement: true
         },
         patientId: {
             type: DataTypes.BIGINT.UNSIGNED,
-            // references: {
-            //     model: User,
-            //     key: 'id'
-            // },
             allowNull: false,
             field: 'patient_id'
         },
         doctorId: {
             type: DataTypes.BIGINT.UNSIGNED,
-            // references: {
-            //     model: User,
-            //     key: 'id'
-            // },
             allowNull: false,
             field: 'doctor_id'
         },
