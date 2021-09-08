@@ -1,0 +1,1 @@
+﻿(Get-Counter -Counter "\PhysicalDisk(0 C:)\Disk Bytes/sec").CounterSamples.CookedValue
