@@ -83,3 +83,4 @@ settings/ganache-accounts.js
 transactions/testing/result/
 transactions/testing/__pycache__/
 transactions/testing/run-status.txt
+artifacts/
