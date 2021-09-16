@@ -2,21 +2,20 @@ pragma solidity >=0.4.0 <=0.9.0;
 
 import "./models/UserRole.sol";
 import "./models/User.sol";
+import "./models/Doctor.sol";
+import "./models/Hospital.sol";
+import "./models/Record.sol";
+import "./models/RecordUpdate.sol";
+import "./models/RecordAccess.sol";
 
 contract Main {
     UserRole patientRole;
     User patient;
-    
-    
-    // function main() public returns (string memory _userName, string memory _roleName){
-    //     UserRole patientRole = new UserRole(1, "patient");
-        
-        // User patient = new User(1, patientRole, "Ian");
-
-        // _userName = patient.getName();
-        // _roleName = patientRole.getName();
-        // return patient;
-    // }
+    Doctor doctor;
+    Hospital hospital;
+    Record record;
+    RecordUpdate recordUpdate;
+    RecordAccess recordAccess;
     
     function getPatientRole() public view returns (uint256 _id, string memory _name){
         _id = patientRole.getId();
